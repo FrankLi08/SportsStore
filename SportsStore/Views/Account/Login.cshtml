@@ -1,0 +1,44 @@
+﻿@model SportsStore.Models.LoginViewModel
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    ViewBag.Title = "Admin : Log In";
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Log In</h3>
+    </div>
+    <div class="panel-body">
+        <p class="lead">Please log in to access the administration area:</p>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label>User Name:</label>
+                @Html.TextBoxFor(m=>m.UserName, new {@class="form-control" })
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                @Html.PasswordFor(m=>m.Password, new { @class="form-control"})
+            </div>
+            <div class="form-group">
+                <label>Role</label>
+                @Html.DropDownListFor(m => m.rolenum, new[] {
+               new SelectListItem() { Text= SportsStore.Models.signupviewmodel.rolenumber.Manager.ToString(),Value=SportsStore.Models.signupviewmodel.rolenumber.Manager.ToString()}, new SelectListItem() { Text= SportsStore.Models.signupviewmodel.rolenumber.Customer.ToString(), Value=SportsStore.Models.signupviewmodel.rolenumber.Customer.ToString()}
+           }, new { @class = "form-control" })
+
+            </div>
+
+
+            <div class="text-center">
+                <input type="submit" value="Log In" class="btn btn-primary" />
+                @Html.ActionLink("Sign Up", "signup", null, new { @class = "btn btn-primary" })
+            </div>
+
+
+           
+            
+        }
+
+        </div>
+</div>

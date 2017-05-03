@@ -33,7 +33,6 @@ namespace SportsStore.UnitTest
             Assert.AreEqual("p2", result[1].Name);
             Assert.AreEqual("p3", result[2].Name);
             // can not be test
-
         }
 
         //[TestMethod]
